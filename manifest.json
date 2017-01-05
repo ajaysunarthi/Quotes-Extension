@@ -2,12 +2,15 @@
     "manifest_version": 2,
     "name": "Quotes",
     "version": "0.1",
+    "offline_enabled": true,
     "chrome_url_overrides": {
         "newtab": "index.html"
     },
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "description": "Show awesome quotes on new tab",
     "icons": {
-        "128": "icon.png"
+        "128": "icon-128.png",
+        "48": "icon-48.png",
+        "16": "icon-16.png"
     }
 }
