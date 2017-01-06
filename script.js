@@ -5,6 +5,7 @@ var quoteApp = function(el) {
 
     if (this.quotes) {
         // you have quotes now render DOM
+        this.renderQuote();
     } else {
         this.loadQuotes();
         // fetch some quotes
@@ -21,14 +22,23 @@ quoteApp.prototype.Ajax = function(url) {
     var self = this;
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            var response = xhr.responseText;
-            console.log((JSON.parse(response) ));
+            var response = JSON.parse( xhr.responseText );
+            self.save(response);
+            self.renderQuote();
         }
     };
 
     xhr.open('GET', chrome.extension.getURL(url), true);
     xhr.send();
+}
 
+quoteApp.prototype.save = function(response) {
+	localStorage.Quotes = JSON.stringify(response);
+	this.Quotes = response;
+}
+
+quoteApp.prototype.renderQuote = function() {
+	
 }
 
 window.quoteApp = new quoteApp($('app'));
