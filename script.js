@@ -4,11 +4,14 @@ var quoteApp = function(el) {
     this.el = el;
 
     if (this.quotes) {
+
         // you have quotes now render DOM
         this.renderQuote();
+
     } else {
-        this.loadQuotes();
         // fetch some quotes
+        this.loadQuotes();
+        
     }
 }
 
@@ -38,7 +41,53 @@ quoteApp.prototype.save = function(response) {
 }
 
 quoteApp.prototype.renderQuote = function() {
+	var size = this.Quotes.length;
+	var randomIndex = Math.floor(Math.random()*(size-1));
+	var quote = this.Quotes[randomIndex];
+	this.html(quote);
+}
+
+quoteApp.prototype.html = function(html) {
 	
+	var h1 = document.createElement("H1");
+    var t1 = document.createTextNode(html.quote);
+    h1.appendChild(t1);
+    h1.className = 'quote';
+
+    var h2 = document.createElement("H2");
+    var t2 = document.createTextNode(html.author);
+    h2.appendChild(t2);
+    h2.className = 'author';
+
+    this.el.appendChild(h1);
+    this.el.appendChild(h2);
 }
 
 window.quoteApp = new quoteApp($('app'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
