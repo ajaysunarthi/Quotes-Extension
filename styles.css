@@ -1,0 +1,28 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#app {
+  width: 80%;
+  text-align: center;
+  position: relative;
+  top: 30%;
+  margin: 0 auto;
+}
+
+.author{
+	color: #a0a0a0;
+}
